@@ -10,7 +10,6 @@
 
 #include "main.h"
 
-void exercise_run();
 void timer0_run();
 void timer1_run();
 void display7SEG(int num);

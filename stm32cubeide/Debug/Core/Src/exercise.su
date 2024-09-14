@@ -1,6 +1,5 @@
-exercise.c:13:6:exercise_run	8	static
-exercise.c:28:6:timer0_run	8	static
-exercise.c:31:6:timer1_run	8	static
-exercise.c:37:6:updateClockBuffer	4	static
-exercise.c:43:6:update7SEG	16	static
-exercise.c:77:6:display7SEG	16	static
+exercise.c:13:6:timer0_run	8	static
+exercise.c:29:6:timer1_run	8	static
+exercise.c:35:6:updateClockBuffer	4	static
+exercise.c:41:6:update7SEG	16	static
+exercise.c:75:6:display7SEG	16	static
