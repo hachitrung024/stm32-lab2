@@ -11,7 +11,7 @@ int index_led = 0;
 int led_buffer [4] = {1, 2, 3, 4};
 int hour = 15, minute = 8, second = 50;
 void timer0_run(){
-	++second;
+	second++;
 	if ( second >= 60) {
 	  second = 0;
 	  minute ++;
