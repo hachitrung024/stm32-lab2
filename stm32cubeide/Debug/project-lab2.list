@@ -85,7 +85,7 @@ int hour = 15, minute = 8, second = 50;
 void timer0_run(){
  800014c:	b580      	push	{r7, lr}
  800014e:	af00      	add	r7, sp, #0
-	second ++;
+	++second;
  8000150:	4b15      	ldr	r3, [pc, #84]	; (80001a8 <timer0_run+0x5c>)
  8000152:	681b      	ldr	r3, [r3, #0]
  8000154:	3301      	adds	r3, #1
