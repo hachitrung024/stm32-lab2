@@ -1,4 +1,4 @@
-exercise.c:9:6:exercise_init	8	static
-exercise.c:13:6:timer1_run	8	static
-exercise.c:19:6:timer2_run	8	static
-exercise.c:24:6:display7SEG	16	static
+exercise.c:12:6:timer0_run	8	static
+exercise.c:15:6:timer1_run	8	static
+exercise.c:21:6:update7SEG	16	static
+exercise.c:55:6:display7SEG	16	static

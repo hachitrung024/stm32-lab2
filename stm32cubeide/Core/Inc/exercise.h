@@ -10,8 +10,10 @@
 
 #include "main.h"
 
-void exercise_init();
+void timer0_run();
 void timer1_run();
-void timer2_run();
 void display7SEG(int num);
+void update7SEG (int num);
+
+
 #endif /* INC_EXERCISE_H_ */
