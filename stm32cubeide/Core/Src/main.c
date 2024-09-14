@@ -238,7 +238,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(counter1 > 0){
 		counter1 --;
 		if(counter1 <=0){
-			counter1 = 50;
+			counter1 = 25;
 			timer1_run();
 		}
 	}
