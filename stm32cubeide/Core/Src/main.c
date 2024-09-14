@@ -226,7 +226,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter0 =100;
-int counter1 =200;
+int counter1 =100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(counter0 >0){
 		counter0 --;

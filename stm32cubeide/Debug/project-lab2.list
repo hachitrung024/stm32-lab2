@@ -1071,7 +1071,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter0 =100;
-int counter1 =200;
+int counter1 =100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80007e8:	b580      	push	{r7, lr}
  80007ea:	b082      	sub	sp, #8
