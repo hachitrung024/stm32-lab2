@@ -13,26 +13,13 @@ int hour = 15, minute = 8, second = 50;
 
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {0x18,0x3C,0x66,0x66,0x7E,0x7E,0x66,0x66};
+uint8_t matrix_buffer[8] = {0x00,0x66,0xFF,0xFF,0x7E,0x3C,0x18,0x00};
 
 void timer0_run(){
-	second ++;
-	if ( second >= 60) {
-	  second = 0;
-	  minute ++;
-	}
-	if( minute >= 60) {
-	  minute = 0;
-	  hour ++;
-	}
-	if( hour >=24){
-	  hour = 0;
-	}
-	updateClockBuffer();
-	HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+
 }
 void timer1_run(){
-
+	shiftLeftWithWrap(matrix_buffer);
 }
 void timer2_run(){
 	if(index_led_matrix >= 0){
@@ -56,42 +43,43 @@ void updateLEDMatrix(int index){
 		case 0:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, RESET);
-			displayROW(0x01);
+			displayROW(0x80);
 			break;
 		case 1:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, RESET);
-			displayROW(0x02);
+			displayROW(0x40);
 			break;
 		case 2:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, RESET);
-			displayROW(0x04);
+			displayROW(0x20);
 			break;
 		case 3:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, RESET);
-			displayROW(0x08);
+			displayROW(0x10);
 			break;
 		case 4:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, RESET);
-			displayROW(0x10);
+			displayROW(0x08);
 			break;
 		case 5:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, RESET);
-			displayROW(0x20);
+			displayROW(0x04);
 			break;
 		case 6:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, RESET);
-			displayROW(0x40);
+			displayROW(0x02);
 			break;
 		case 7:
 			disableMatrix();
 			HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, RESET);
-			displayROW(0x80);
+			displayROW(0x01);
+
 			break;
 		default:
 			disableMatrix();
@@ -249,4 +237,12 @@ void display7SEG(int num){
 	  HAL_GPIO_WritePin(SEG6_GPIO_Port, SEG6_Pin, SET);
 	  break;
   }
+}
+void shiftLeftWithWrap(uint8_t *matrix_buffer) {
+    for (int i = 0; i < 8; i++) {
+        // Lấy bit trái nhất của hàng
+        uint8_t left_most_bit = (matrix_buffer[i] & 0x80) >> 7;
+        // Dịch bit sang trái và đưa bit trái nhất về bên phải
+        matrix_buffer[i] = (matrix_buffer[i] << 1) | left_most_bit;
+    }
 }

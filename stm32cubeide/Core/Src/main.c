@@ -104,12 +104,11 @@ int main(void)
 		  setTimer0(100);
 	  }
 	  if(timer1_flag==1){
-		  setTimer1(25);
+		  setTimer1(100);
 		  timer1_run();
-
 	  }
 	  if(timer2_flag==1){
-		  setTimer2(5);
+		  setTimer2(2);
 		  timer2_run();
 	  }
     /* USER CODE END WHILE */

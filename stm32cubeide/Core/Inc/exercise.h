@@ -23,4 +23,5 @@ void disableMatrix();
 void updateLEDMatrix(int index);
 void displayROW(uint8_t state);
 
+void shiftLeftWithWrap(uint8_t *matrix_buffer);
 #endif /* INC_EXERCISE_H_ */
