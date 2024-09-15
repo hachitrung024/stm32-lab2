@@ -12,9 +12,15 @@
 
 void timer0_run();
 void timer1_run();
+void timer2_run();
+
+void disable7SEG();
 void display7SEG(int num);
 void update7SEG (int num);
 void updateClockBuffer();
 
+void disableMatrix();
+void updateLEDMatrix(int index);
+void displayROW(uint8_t state);
 
 #endif /* INC_EXERCISE_H_ */
