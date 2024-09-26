@@ -108,7 +108,7 @@ int main(void)
 		  timer1_run();
 	  }
 	  if(timer2_flag==1){
-		  setTimer2(2);
+		  setTimer2(1);
 		  timer2_run();
 	  }
     /* USER CODE END WHILE */
