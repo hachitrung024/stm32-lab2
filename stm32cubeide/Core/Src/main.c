@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "exercise.h"
-#include "software_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,18 +95,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   exercise_init();
-  setTimer0(100);
-  setTimer1(150);
   while (1)
   {
-	  if(timer0_flag==1){
-		  setTimer0(100);
-		  timer1_run();
-	  }
-	  if(timer1_flag==1){
-		  setTimer1(100);
-		  timer2_run();
-	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -237,7 +226,16 @@ static void MX_GPIO_Init(void)
 int counter1 = 100;
 int counter2 = 150;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	timerRun();
+	counter1--;
+  counter2--;
+  if(counter1 <= 0){
+    counter1 = 100;
+    timer1_run();
+  }
+  if(counter2 <= 0){
+    counter2 = 100;
+    timer2_run();
+  }
 }
 /* USER CODE END 4 */
 
