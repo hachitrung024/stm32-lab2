@@ -95,16 +95,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(100);
-  setTimer1(100);
+  setTimer0(1000);
+  setTimer1(1000);
   while (1)
   {
 	  if(timer0_flag==1){
-		  setTimer0(100);
+		  setTimer0(1000);
 		  timer0_run();
 	  }
 	  if(timer1_flag==1){
-		  setTimer1(25);
+		  setTimer1(250);
 		  timer1_run();
 	  }
     /* USER CODE END WHILE */
@@ -236,8 +236,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter0 =100;
-int counter1 =100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timerRun();
 }
