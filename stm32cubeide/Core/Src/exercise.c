@@ -241,9 +241,7 @@ void display7SEG(int num){
 }
 void shiftLeftWithWrap(uint8_t *matrix_buffer) {
     for (int i = 0; i < 8; i++) {
-        // Lấy bit trái nhất của hàng
         uint8_t left_most_bit = (matrix_buffer[i] & 0x80) >> 7;
-        // Dịch bit sang trái và đưa bit trái nhất về bên phải
         matrix_buffer[i] = (matrix_buffer[i] << 1) | left_most_bit;
     }
 }

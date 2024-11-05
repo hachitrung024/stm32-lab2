@@ -466,7 +466,6 @@ void shiftLeftWithWrap(uint8_t *matrix_buffer) {
  8000424:	2300      	movs	r3, #0
  8000426:	60fb      	str	r3, [r7, #12]
  8000428:	e017      	b.n	800045a <shiftLeftWithWrap+0x3e>
-        // Lấy bit trái nhất của hàng
         uint8_t left_most_bit = (matrix_buffer[i] & 0x80) >> 7;
  800042a:	68fb      	ldr	r3, [r7, #12]
  800042c:	687a      	ldr	r2, [r7, #4]
@@ -474,7 +473,6 @@ void shiftLeftWithWrap(uint8_t *matrix_buffer) {
  8000430:	781b      	ldrb	r3, [r3, #0]
  8000432:	09db      	lsrs	r3, r3, #7
  8000434:	72fb      	strb	r3, [r7, #11]
-        // Dịch bit sang trái và đưa bit trái nhất về bên phải
         matrix_buffer[i] = (matrix_buffer[i] << 1) | left_most_bit;
  8000436:	68fb      	ldr	r3, [r7, #12]
  8000438:	687a      	ldr	r2, [r7, #4]
