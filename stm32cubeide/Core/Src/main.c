@@ -95,16 +95,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(100);
-  setTimer1(100);
+  setTimer0(1000);
+  setTimer1(1000);
   while (1)
   {
 	  if(timer0_flag==1){
-		  setTimer0(100);
+		  setTimer0(1000);
 		  timer0_run();
 	  }
 	  if(timer1_flag==1){
-		  setTimer1(25);
+		  setTimer1(250);
 		  timer1_run();
 	  }
     /* USER CODE END WHILE */
